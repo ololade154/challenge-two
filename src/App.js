@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import Button from './Button';
+import Input from './Input';
+import Display from './Display';
 
 const faqs = [
   {
@@ -15,9 +18,13 @@ const faqs = [
   },
 ];
 function App() {
+  const [name, setName] = useState('');
   return (
     <div className="App">
       <Accordion data={faqs}></Accordion>
+      <Button></Button>
+      <Input name={name} setName={setName}></Input>
+      <Display name={name}></Display>
     </div>
   );
 }
