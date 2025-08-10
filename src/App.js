@@ -33,9 +33,27 @@ function Accordion({ data }) {
           num={i}
           key={item.title}
         >
-          text={item.text}
+          {item.text}
         </AccordionItem>
       ))}
+      <AccordionItem
+        curOpen={curOpen}
+        onOpen={setCurOpen}
+        title="test 1"
+        num={22}
+        key="test 1"
+      >
+        hello
+      </AccordionItem>
+      <AccordionItem
+        curOpen={curOpen}
+        onOpen={setCurOpen}
+        title="test 2"
+        num={23}
+        key="test 2"
+      >
+        Ololade
+      </AccordionItem>
     </div>
   );
 }
@@ -46,12 +64,12 @@ function AccordionItem({ num, title, curOpen, onOpen, children }) {
     onOpen(isOpen ? null : num);
   }
   return (
-    <diV className={`item ${isOpen ? 'open' : ''}`} onClick={handleOpen}>
+    <div className={`item ${isOpen ? 'open' : ''}`} onClick={handleOpen}>
       <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
       <p className="title">{title}</p>
       <p className="icon">{isOpen ? '-' : '+'}</p>
       {isOpen && <div className="content">{children}</div>}
-    </diV>
+    </div>
   );
 }
 
